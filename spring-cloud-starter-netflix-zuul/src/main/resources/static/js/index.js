@@ -1,3 +1,3 @@
 $(function(){
-    resizeIframe();
-})
+    resizeIframe("#grafana", $("#header").height());
+});
