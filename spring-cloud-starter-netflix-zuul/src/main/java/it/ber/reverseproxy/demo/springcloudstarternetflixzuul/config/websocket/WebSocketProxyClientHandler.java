@@ -1,6 +1,7 @@
 package it.ber.reverseproxy.demo.springcloudstarternetflixzuul.config.websocket;
 
-import org.springframework.web.socket.CloseStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
@@ -11,6 +12,7 @@ import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 public class WebSocketProxyClientHandler extends AbstractWebSocketHandler {
 
     private final WebSocketSession webSocketServerSession;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public WebSocketProxyClientHandler(WebSocketSession webSocketServerSession) {
         this.webSocketServerSession = webSocketServerSession;
@@ -18,7 +20,13 @@ public class WebSocketProxyClientHandler extends AbstractWebSocketHandler {
 
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> webSocketMessage) throws Exception {
-        webSocketServerSession.sendMessage(webSocketMessage);
+        try {
+            logger.info("client - handleMessage: Session => {} ; Message => {}", session, webSocketMessage);
+            webSocketServerSession.sendMessage(webSocketMessage);
+        } catch (Exception e) {
+            logger.info("client - handleMessage: Session => {} ; CLOSED", session);
+            webSocketServerSession.close();
+        }
     }
 
 }

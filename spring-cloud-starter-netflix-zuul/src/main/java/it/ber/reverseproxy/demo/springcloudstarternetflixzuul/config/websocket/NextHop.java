@@ -1,5 +1,6 @@
 package it.ber.reverseproxy.demo.springcloudstarternetflixzuul.config.websocket;
 
+import it.ber.reverseproxy.demo.springcloudstarternetflixzuul.service.GrafanaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.WebSocketHttpHeaders;
@@ -20,18 +21,17 @@ import java.util.concurrent.TimeUnit;
 public class NextHop {
 
     private final WebSocketSession webSocketClientSession;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public NextHop(WebSocketSession webSocketServerSession) {
-        webSocketClientSession = createWebSocketClientSession(webSocketServerSession);
+    public NextHop(WebSocketSession webSocketServerSession, GrafanaService grafanaService) {
+        webSocketClientSession = createWebSocketClientSession(webSocketServerSession, grafanaService);
     }
 
-    private WebSocketSession createWebSocketClientSession(WebSocketSession webSocketServerSession) {
+    private WebSocketSession createWebSocketClientSession(WebSocketSession webSocketServerSession, GrafanaService grafanaService) {
         try {
             WebSocketHttpHeaders webSocketHttpHeaders = new WebSocketHttpHeaders();
-            webSocketHttpHeaders.put("X-WEBAUTH-USER", Collections.singletonList("admin"));
+            webSocketHttpHeaders.put(grafanaService.getHeaderUsername(), Collections.singletonList(grafanaService.getUsername()));
             return new StandardWebSocketClient()
-                    .doHandshake(new WebSocketProxyClientHandler(webSocketServerSession), webSocketHttpHeaders, new URI("ws://localhost:3000/grafana/api/live/ws"))
+                    .doHandshake(new WebSocketProxyClientHandler(webSocketServerSession), webSocketHttpHeaders, new URI(grafanaService.getUrlWebSocket()))
                     .get(1000, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -40,5 +40,13 @@ public class NextHop {
 
     public void sendMessageToNextHop(WebSocketMessage<?> webSocketMessage) throws IOException {
         webSocketClientSession.sendMessage(webSocketMessage);
+    }
+
+    public boolean isOpen(){
+        return webSocketClientSession.isOpen();
+    }
+
+    public String getWebSocketSessionId(){
+        return webSocketClientSession.getId();
     }
 }

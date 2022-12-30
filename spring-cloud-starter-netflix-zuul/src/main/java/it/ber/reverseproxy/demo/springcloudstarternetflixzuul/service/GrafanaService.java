@@ -12,8 +12,11 @@ public class GrafanaService {
     @Value("${it.ber.grafana.user.header}")
     private String headerUsername;
 
-    @Value("${it.ber.grafana.webservice.url}")
-    private String webService;
+    @Value("${it.ber.grafana.websocket.url}")
+    private String urlWebSocket;
+
+    @Value("${it.ber.grafana.websocket.path}")
+    private String pathWebSocket;
 
     public String getUsername() {
         return username;
@@ -23,8 +26,11 @@ public class GrafanaService {
         return headerUsername;
     }
 
-    public String getWebService() {
-        return webService;
+    public String getUrlWebSocket() {
+        return urlWebSocket;
     }
 
+    public String getPathWebSocket() {
+        return pathWebSocket;
+    }
 }
