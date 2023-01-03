@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Cloud Starter Netflix Zuul Demo</title>
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery-3.6.3.min.js}"></script>
+
+    <script type="text/javascript" th:src="@{/js/grafana-config.js}"></script>
+
+
+</head>
+<body>
+<header id="header">
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="px-2">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <strong>Spring Cloud Starter Netflix Zuul Demo</strong>
+            </a>
+        </div>
+    </div>
+</header>
+<main role="main">
+    <iframe src="/grafana" id="grafana" class="w-100"></iframe>
+</main>
+
+<script type="text/javascript" th:src="@{/js/index.js}"></script>
+
+</body>
+</html>
