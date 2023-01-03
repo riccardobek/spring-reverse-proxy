@@ -16,7 +16,7 @@ The second one is based on WebFlux.
 
 In this case I tried to implement two different way to integrate in an application this farework: MVC and WebFlux. 
 
-- MVC: in my opinion is not the one I would raccomend; It use this properies "" that forse to rewrite any bean with the same name. I tried to find a solution becouse the application where I had to integrate the reverse proxy was built in MVC. 
+- MVC: in my opinion is not the one I would raccomend; It use this properies "spring.main.web-application-type=reactive" that force to rewrite any bean with the same name. I tried to find a solution becouse the application where I had to integrate the reverse proxy was built in MVC. 
 - WebFlux: it is the easiest way all the properties are already available and there are many functionality. The only problem is you must have as a dependency WebFlux.
 
 
