@@ -10,4 +10,6 @@ During my studies I found this two framework:
 
 The first one has a problem with the web socket so I searched many solution the only one I found was create my own socket. I tried [Spring Clound Netflix Zuul Websocket](https://github.com/mthizo247/spring-cloud-netflix-zuul-websocket) but it doesn't work with my application.
 
-I thanks barrett-rob for the solution of integrate a sort of [NGINX](https://github.com/barrett-rob/java-websocket-reverse-proxy) insede of java.
+I thanks barrett-rob for the solution of integrate a sort of [NGINX](https://github.com/barrett-rob/java-websocket-reverse-proxy) inside of java.
+
+The second one is based on WebFlux but I used it with MVC. 
