@@ -10,7 +10,7 @@ Carrying out more targeted researches on reverse proxies and Spring Boot, I came
 
 Thanks to further studies on the documentation and integration examples, I was able to create three different web application with a Grafana dedicated reverse proxy.
 
-The code is under the [MIT lincence](./LICENSE.md) and with the necessary modifications it can allow you to create reverse proxies for other applications as well.
+The code is under the [MIT license](./LICENSE.md) and with the necessary modifications it can allow you to create reverse proxies for other applications as well.
 
 ## Projects
 
@@ -31,7 +31,7 @@ This is a very good and complete component. The documentation is extensive and u
 
 This component is based on WebFlux so I don't recommend using it with MVC. However, if you want to embark on this solution, I present what I managed to achieve to fix some of the conflicting behavior between WebFlux and MVC.
 
-In order to use the library combined with MVC it ​​is necessary to introduce in the properties file:
+In order to use the library combined with MVC it is necessary to introduce in the properties file:
 
     ...
     spring.main.web-application-type=reactive
