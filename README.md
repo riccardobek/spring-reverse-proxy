@@ -14,8 +14,6 @@ The code is under the [MIT license](./LICENSE.md) and with the necessary modific
 
 ## Projects
 
----
-
 ### Spring Clound Starter Netflix Zuul
 
 This component is well documented, however it has a limitation related to web sockets
@@ -45,12 +43,7 @@ This property allows you to overwrite the beans that have been declared with the
 
 As noted in the MVC section, the component is based on WebFlux. Integration and use are decidedly quick and immediate.
 
-## Installation
-
----
-
-Prerequisites
------
+## Prerequisites
 
 I assume you have installed Docker and it is running, JDK 11.0.6.1 and Maven. 
 I used IntelliJ IDEA Community Edition for build and test the java applications.
@@ -60,8 +53,7 @@ See the [Oracle webiste](https://www.oracle.com/it/java/technologies/javase/jdk1
 See the [Maven website](https://maven.apache.org/) for installation instructions.
 See the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=windows) for downloading the IDE.
 
-Build
------
+## Build
 
 Steps to build the projects:
 
