@@ -1,6 +1,6 @@
 # Spring Reverse Proxy
 
-Following a request from my boss, I found myself studying NGINX, Apache and reverse proxies to be used between Grafana and a Spring Web App.
+Following a request from my Project Manager, I found myself studying NGINX, Apache and reverse proxies to be used between Grafana and a Spring Web App.
 The simplest one I found is building a reverse proxy using NGINX. This is a standard solution, but I was looking for something that would allow me to not identify Grafana as an external application. 
 
 Carrying out more targeted researches on reverse proxies and Spring Boot, I came across two components:
