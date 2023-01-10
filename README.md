@@ -14,7 +14,7 @@ The code is under the [MIT license](./LICENSE.md) and with the necessary modific
 
 ## Projects
 
-### Spring Clound Starter Netflix Zuul
+### Spring Cloud Starter Netflix Zuul
 
 This component is well documented, however it has a limitation related to web sockets
 
