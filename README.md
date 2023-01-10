@@ -49,8 +49,11 @@ I assume you have installed Docker and it is running, JDK 11.0.6.1 and Maven.
 I used IntelliJ IDEA Community Edition for build and test the java applications.
 
 See the [Docker website](http://www.docker.io/gettingstarted/#h_installation) for installation instructions.
+
 See the [Oracle webiste](https://www.oracle.com/it/java/technologies/javase/jdk11-archive-downloads.html) for download the JDK.
+
 See the [Maven website](https://maven.apache.org/) for installation instructions.
+
 See the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=windows) for downloading the IDE.
 
 ## Build
@@ -71,6 +74,18 @@ Steps to build the projects:
     - spring-cloud-starter-netflix-zuul
     - spring-cloud-starter-gateway-mvc
     - spring-cloud-starter-gateway-webflux
+
+It is also possible compile it in command line without intellij using this command:
+
+        cd <project_folder>
+        mvn clean install
+        java -jar target/<filename>
+
+Exemple:
+
+        cd spring-cloud-starter-gateway-mvc
+        mvn clean install
+        java -jar target/spring-cloud-starter-gateway-mvc-0.0.1-SNAPSHOT.jar
 
 6. Once everything has started up, you should be able to access the webapp on your host machine.
     
