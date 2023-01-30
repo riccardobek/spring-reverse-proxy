@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>it.ber.reverseproxy.demo</groupId>
-	<artifactId>spring-cloud-starter-gateway</artifactId>
+	<artifactId>reverseproxy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-cloud-starter-gateway</name>
 	<description>Reverse proxy generated using Gateway</description>
