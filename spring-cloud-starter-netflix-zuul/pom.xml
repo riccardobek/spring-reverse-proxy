@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>it.ber.reverseproxy.demo</groupId>
-	<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+	<artifactId>reverseproxy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-cloud-starter-netflix-zuul</name>
 	<description>Reverse proxy generated using zuul</description>
