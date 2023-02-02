@@ -11,7 +11,7 @@
 	<groupId>it.ber.reverseproxy.demo</groupId>
 	<artifactId>reverseproxy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-cloud-starter-gateway</name>
+	<name>spring-cloud-starter-gateway-mvc</name>
 	<description>Reverse proxy generated using Gateway</description>
 
 	<properties>
