@@ -5,8 +5,6 @@ services:
     build: 
       context: ./spring-cloud-starter-netflix-zuul
       dockerfile: Dockerfile
-    # volumes:
-    #   - ./spring-cloud-starter-netflix-zuul:/opt:rw
     ports:
       - "8080:8080"
 
@@ -15,8 +13,6 @@ services:
     build: 
       context: ./spring-cloud-starter-gateway-webflux
       dockerfile: Dockerfile
-    # volumes:
-    #   - ./spring-cloud-starter-gateway-webflux:/opt:rw
     ports:
       - "8081:8081"
  
@@ -25,8 +21,6 @@ services:
     build: 
       context: ./spring-cloud-starter-gateway-mvc
       dockerfile: Dockerfile
-    # volumes:
-    #  - ./spring-cloud-starter-gateway-mvc:/opt:rw
     ports:
       - "8082:8082"
  

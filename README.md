@@ -1,37 +1,24 @@
 # Spring Reverse Proxy
 
-Following a request from my Project Manager, I found myself studying NGINX, Apache and reverse proxies to be used between Grafana and a Spring Web App.
-The simplest one I found is building a reverse proxy using NGINX. This is a standard solution, but I was looking for something that would allow me to not identify Grafana as an external application. 
+This project is an implementation of a reverse proxy using either [Spring Cloud Starter Netflix Zuul](https://cloud.spring.io/spring-cloud-netflix/reference/html/) or [Spring Cloud Starter Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) (MVC or Webflux).
 
-Carrying out more targeted researches on reverse proxies and Spring Boot, I came across two components:
+A reverse proxy is a type of server that acts as an intermediary between clients and servers, receiving requests from clients and forwarding them to the appropriate servers. The reverse proxy can be used for various purposes, such as load balancing, authentication and authorization, protection from cyber attacks, masking the server's IP address, and traffic compression. This increases security and improves scalability of online applications.
 
-- [Spring Clound Starter Netflix Zuul](https://cloud.spring.io/spring-cloud-netflix/reference/html/)
-- [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
+This repository contains three different Spring Boot projects for reverse proxy a Grafana Server:
 
-Thanks to further studies on the documentation and integration examples, I was able to create three different web application with a Grafana dedicated reverse proxy.
+- `spring-cloud-starter-netflix-zuul`
+- `spring-cloud-starter-gateway-mvc`
+- `spring-cloud-starter-gateway-webflux`
 
-The code is under the [MIT license](./LICENSE.md) and with the necessary modifications it can allow you to create reverse proxies for other applications as well.
+### Project 1: spring-cloud-starter-netflix-zuul
+This project demonstrates how to use Zuul as a reverse proxy in a Spring Boot application. It includes a simple example of routing incoming requests to different microservices based on the URL path.
 
-## Projects
+The library spring-cloud-starter-netflix-zuul has a limitation related to web sockets. I overcame it, creating a [java websocket reverse proxy](https://github.com/barrett-rob/java-websocket-reverse-proxy).
 
-### Spring Cloud Starter Netflix Zuul
+### Project 2: spring-cloud-starter-gateway-mvc
+This project showcases the use of Spring Cloud Gateway MVC for reverse proxying in a Spring Boot application. It includes examples of request routing, request filtering, and customizing the response for incoming requests.
 
-This component is well documented, however it has a limitation related to web sockets
-
-Searching on github I found the [java-websocket-reverse-proxy](https://github.com/barrett-rob/java-websocket-reverse-proxy) repository of barrett-rob which after the necessary adjustments allowed me to overcome the limitation.
-
-### Spring Cloud Gateway
-
-This is a very good and complete component. The documentation is extensive and up to date. However, although both the MVC and WebFlux versions are provided, I think the best one is the standard one that I used in both projects: 
-
-- [spring-cloud-gateway-mvc](./spring-cloud-starter-gateway-mvc/)
-- [spring-cloud-gateway-webflux](./spring-cloud-starter-gateway-webflux/)
-
-#### MVC
-
-This component is based on WebFlux so I don't recommend using it with MVC. However, if you want to embark on this solution, I present what I managed to achieve to fix some of the conflicting behavior between WebFlux and MVC.
-
-In order to use the library combined with MVC it is necessary to introduce in the properties file:
+In order to use the library spring-cloud-starter-gateway combined with MVC it is necessary to introduce in the properties file:
 
     ...
     spring.main.web-application-type=reactive
@@ -39,65 +26,51 @@ In order to use the library combined with MVC it is necessary to introduce in th
 
 This property allows you to overwrite the beans that have been declared with the same name.
 
-#### WebFlux
+### Project 3: spring-cloud-starter-gateway-webflux
+This project demonstrates the use of Spring Cloud Gateway WebFlux for reverse proxying in a Spring Boot application. It includes examples of request routing and filtering, and customization of the response for incoming requests using WebFlux.
 
-As noted in the MVC section, the component is based on WebFlux. Integration and use are decidedly quick and immediate.
+## Requirements
 
-## Prerequisites
+* Java 11 or later
+* Docker installed on your system
 
-I assume you have installed Docker and it is running, JDK 11.0.6.1 and Maven. 
-I used IntelliJ IDEA Community Edition for build and test the java applications.
+## Running the Project
+To run the project, follow these steps:
 
-See the [Docker website](http://www.docker.io/gettingstarted/#h_installation) for installation instructions.
+1. Clone the project repository to your local machine.
+```bash
+git clone https://github.com/riccardobek/spring-reverse-proxy.git 
+```
 
-See the [Oracle webiste](https://www.oracle.com/it/java/technologies/javase/jdk11-archive-downloads.html) for download the JDK.
+2. Navigate to the project directory.
+```bash
+cd spring-reverse-proxy
+```
 
-See the [Maven website](https://maven.apache.org/) for installation instructions.
+3. Build the Docker images of the project.
+```bash
+docker-compose up
+```
 
-See the [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=windows) for downloading the IDE.
-
-## Build
-
-Steps to build the projects:
-
-1. Clone this repo
-
-        git clone https://github.com/riccardobek/spring-reverse-proxy.git
-
-2. Open the terminal and run the docker compose.
-
-        cd docker-grafana/
-        docker-compose up -d
-
-3. Open intellij and run one of the following projects:
-    
-    - spring-cloud-starter-netflix-zuul
-    - spring-cloud-starter-gateway-mvc
-    - spring-cloud-starter-gateway-webflux
-
-It is also possible compile it in command line without intellij using this command:
-
-        cd <project_folder>
-        mvn clean install
-        java -jar target/<filename>
-
-Exemple:
-
-        cd spring-cloud-starter-gateway-mvc
-        mvn clean install
-        java -jar target/spring-cloud-starter-gateway-mvc-0.0.1-SNAPSHOT.jar
-
-6. Once everything has started up, you should be able to access the webapp on your host machine.
+4. Access the applications through the following endpoint:
     
     - spring-cloud-starter-netflix-zuul - [http://localhost:8080/](http://localhost:8080/)
-    
-            open http://localhost:8080/
+        ```bash
+        open http://localhost:8080/
+        ```
 
     - spring-cloud-starter-gateway-mvc - [http://localhost:8081/](http://localhost:8081/)
-    
-            open http://localhost:8081/
+        ```bash
+        open http://localhost:8081/
+        ```
 
     - spring-cloud-starter-gateway-webflux - [http://localhost:8082/](http://localhost:8082/)
-    
-            open http://localhost:8082/
+        ```bash
+        open http://localhost:8082/
+        ```
 
+## License
+This project is licensed under the MIT License. See [LICENSE](./LICENSE.md) for more information.
+
+## Conclusion
+This project provides a starting point for building a reverse proxy using either Zuul or Gateway in a Spring Boot application. You can customize it to meet your specific requirements.
