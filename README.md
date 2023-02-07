@@ -44,7 +44,7 @@ git clone https://github.com/riccardobek/spring-reverse-proxy.git
 
 2. Navigate to the project directory.
 ```bash
-cd spring-boot-reverse-proxy
+cd spring-reverse-proxy
 ```
 
 3. Build the Docker images of the project.
