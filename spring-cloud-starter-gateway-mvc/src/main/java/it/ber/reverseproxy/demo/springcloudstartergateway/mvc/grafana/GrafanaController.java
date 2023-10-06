@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +27,6 @@ public class GrafanaController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-/*    @Autowired
-    private CinetixRequestHttpService cinetixRequestHttpService;*/
 
     /**
      * Consente di servire tutte le pagine di grafana
@@ -38,21 +37,7 @@ public class GrafanaController {
      * @return
      * @throws GrafanaProxyException Le eccezzioni da lanciare sono per un percorso non ammesso
      */
-    @RequestMapping({"/grafana/public/**",
-            "/grafana/d/**",
-            "/grafana/dashboards/**",
-            "/grafana/avatar/**",
-            "/grafana/api/prometheus/**",
-            "/grafana/api/plugins/**",
-            "/grafana/api/search/**",
-            "/grafana/api/user/**",
-            "/grafana/api/users/**",
-            "/grafana/api/ds/query",
-            "/grafana/api/annotation**",
-            "/grafana/api/frontend-metrics",
-            "/grafana/api/dashboards/**",
-            "/grafana/api/playlists/**",
-    })
+    @RequestMapping({"/grafana/**"})
     @ResponseBody
     public ResponseEntity<?> proxy(ProxyExchange<Object> proxy,
                                    HttpServletRequest httpServletRequest,
