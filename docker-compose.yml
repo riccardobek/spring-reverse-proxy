@@ -8,22 +8,22 @@ services:
     ports:
       - "8080:8080"
 
-  webflux-app:
-    image: webflux-app
-    build: 
-      context: ./spring-cloud-starter-gateway-webflux
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8081"
- 
   mvc-app:
     image: mvc-app
     build: 
       context: ./spring-cloud-starter-gateway-mvc
       dockerfile: Dockerfile
     ports:
+      - "8081:8081"
+
+  webflux-app:
+    image: webflux-app
+    build: 
+      context: ./spring-cloud-starter-gateway-webflux
+      dockerfile: Dockerfile
+    ports:
       - "8082:8082"
- 
+
   grafana:
     container_name: container-grafana
     image: grafana/grafana-oss:latest

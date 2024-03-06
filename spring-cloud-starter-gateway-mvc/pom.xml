@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>it.ber.reverseproxy.demo</groupId>
 	<artifactId>reverseproxy</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>spring-cloud-starter-gateway-mvc</name>
 	<description>Reverse proxy generated using Gateway</description>
 
@@ -30,11 +30,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-gateway-mvc</artifactId>
 		</dependency>
 
 		<dependency>
