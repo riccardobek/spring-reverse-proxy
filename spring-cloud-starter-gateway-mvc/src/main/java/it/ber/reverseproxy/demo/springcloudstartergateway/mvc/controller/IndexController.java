@@ -10,7 +10,6 @@ public class IndexController {
 
     private static final String home = "index";
 
-
     @GetMapping("/")
     public String indexPage(Model model) {
         return home;

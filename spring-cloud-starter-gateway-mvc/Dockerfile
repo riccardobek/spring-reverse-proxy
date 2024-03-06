@@ -7,5 +7,5 @@ ADD . /opt
 WORKDIR /opt
 
 RUN mvn clean install
-ENTRYPOINT ["java","-jar","target/reverseproxy-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","target/reverseproxy-0.0.2-SNAPSHOT.jar"]
 
